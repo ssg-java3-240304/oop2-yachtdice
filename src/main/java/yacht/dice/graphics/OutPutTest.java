@@ -1,5 +1,4 @@
-package yacht.dice.testbed;
-import yacht.dice.OutPutManager;
+package yacht.dice.graphics;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
 
@@ -13,7 +12,7 @@ import static java.lang.Thread.sleep;
  *  build.gradle파일에서 아래 코드를 추가하여 테스트 클래스를 메인클래스로 지정한다
  *  jar{
  *       manifest{
- *           attributes 'Main-Class': 'yacht.dice.testbed.OutPutTest'
+ *           attributes 'Main-Class': 'yacht.dice.graphics.OutPutTest'
  *       }
  *   }
  *  우측의 Gradle 탭에서 Tasks/build/jar를 실행하여 빌드하면 .jar파일이 생성됨

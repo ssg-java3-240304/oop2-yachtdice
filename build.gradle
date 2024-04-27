@@ -7,7 +7,7 @@ version = '1.0-SNAPSHOT'
 /*
 jar{
     manifest{
-        attributes 'Main-Class': 'yacht.dice.testbed.OutPutTest'
+        attributes 'Main-Class': 'yacht.dice.graphics.OutPutTest'
     }
 }
 */

@@ -1,4 +1,4 @@
-package yacht.dice;
+package yacht.dice.graphics;
 
 /**
  *  주사위는 총 6줄로 그린다
@@ -45,7 +45,6 @@ public class OutPutManager {
                 dicebuilder.append(drawOneDice(i+1, dice[j]));
             dicebuilder.append("\n");
         }
-//        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+ dicetop + dicebuilder.toString() + dicebottom);
         System.out.print(dicetop + dicebuilder.toString() + dicebottom);
     }
 
