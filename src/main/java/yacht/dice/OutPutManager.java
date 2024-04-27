@@ -33,15 +33,20 @@ public class OutPutManager {
 
     }
 */
-    public void printDIce(int dice[]){
-//        int [] a = {6,1,3,2,5,4};
+
+    /**
+     * 주사위 화면 출력함수
+     * @param dice
+     */
+    public void printDice(int dice[]){
         StringBuilder dicebuilder = new StringBuilder();
         for(int i = 0; i < 3; i++){
             for(int j = 0 ; j < 5; j++)
                 dicebuilder.append(drawOneDice(i+1, dice[j]));
             dicebuilder.append("\n");
         }
-        System.out.println(dicetop + dicebuilder.toString() + dicebottom);
+//        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+ dicetop + dicebuilder.toString() + dicebottom);
+        System.out.print(dicetop + dicebuilder.toString() + dicebottom);
     }
 
     private String drawOneDice(int line, int dice ){

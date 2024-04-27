@@ -4,7 +4,13 @@ plugins {
 
 group = 'com.sh'
 version = '1.0-SNAPSHOT'
-
+/*
+jar{
+    manifest{
+        attributes 'Main-Class': 'yacht.dice.testbed.OutPutTest'
+    }
+}
+*/
 repositories {
     mavenCentral()
 }
