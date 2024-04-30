@@ -1,5 +1,7 @@
 package yacht.dice.graphics;
 
+import java.util.Arrays;
+
 /**
  *  주사위는 총 6줄로 그린다
  *  상단 2줄과 마지막 1줄은 항상 고정
@@ -30,19 +32,18 @@ public class DrawDice {
                             """;
 
     /**
-     * keep이 설정되지 않은 주사위만 굴러가는 애니메이션 구현 필요
+     * keep이 설정되지 않은 주사위만 굴러가는 애니메이션용
      * @param dice
      * @param keep
-     * @return 완성된 주사위 5개 이미지를 반환
      */
-    public String draw(int[] dice, boolean[] keep){
+    public String drawAnime(int[] dice, boolean[] keep){
         StringBuilder diceBuilder = new StringBuilder();
-        for(int i = 0; i < 3; i++){
-            for(int j = 0 ; j < 5; j++)
-                diceBuilder.append(drawDiceParts(i+1, dice[j]));
-            diceBuilder.append("\n");
-        }
-        return dicetop + diceBuilder.toString() + dicebottom;
+            for (int i = 0; i < keep.length; i++) {
+                if (keep[i]) {
+                    dice[i] = (int) (Math.random() * 6 + 1);
+                }
+            }
+            return draw(dice);
     }
 
 

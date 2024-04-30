@@ -5,11 +5,11 @@ plugins {
 group = 'com.sh'
 version = '1.0-SNAPSHOT'
 
-//jar{
-//    manifest{
-//        attributes 'Main-Class': 'yacht.dice.graphics.OutPutTest'
-//    }
-//}
+jar{
+    manifest{
+        attributes 'Main-Class': 'yacht.dice.graphics.OutPutTest'
+    }
+}
 
 repositories {
     mavenCentral()

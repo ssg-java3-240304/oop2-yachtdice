@@ -21,21 +21,14 @@ import static java.lang.Thread.sleep;
 public class OutPutTest {
     public static void main(String[] args) throws InterruptedException {
         boolean[] keep = new boolean[]{false,false,false,false,false};
-        OutPutManager run = new OutPutManager();
-        for (int i = 0; i < 15; i++) {
-            sleep(100); //주사위가 구르는 애니메이션을 표현하기 위해 사용
-/**
-            콘솔 클리어
-            콘솔을 지워주지 않으면 화면이 밀려 올라가는게 보이므로 굉장히 어색함
- */
-            clearConsole();
-//            int[] dice = {((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1)};
-            //테스트용 주사위 배열 생성
-            int[] dice = {((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1)};
-            System.out.println();
-            run.printScreen(dice, keep);    //주사위 출력
-            run.printScreen();
-        }
+        OutPutManager outPutManager = new OutPutManager();
+
+//            //테스트용 주사위 배열 생성
+        int[] dice = {((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1), ((int) (Math.random() * 6) + 1)};
+        keep[1] = true;
+        keep[2] = true;
+        keep[3] = true;
+        outPutManager.printScreen(dice, keep);
 
         sleep(800);
         clearConsole();
@@ -43,6 +36,7 @@ public class OutPutTest {
         System.out.print(title.getTitle());
     }
 
+    //콘솔클리어 하는 메소드
     public static void clearConsole(){
         try {
             final String os = System.getProperty("os.name");
