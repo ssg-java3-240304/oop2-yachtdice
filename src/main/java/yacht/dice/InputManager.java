@@ -20,7 +20,7 @@ public class InputManager {
             case CHOOSE_SCORE_BORAD -> {
                 System.out.printf("안녕하세요");//스코어 보드로 이론
                 Scoreboard scoreboard=new Scoreboard();
-                scoreboard.Scoreprint();
+//                scoreboard.Scoreprint();
             }
         }
     }
