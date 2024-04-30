@@ -1,4 +1,4 @@
-package yacht.dice;
+package yacht.dice.graphics;
 
 /**
  *  주사위는 총 6줄로 그린다
@@ -19,7 +19,7 @@ package yacht.dice;
  *  각 주사위마다 현재 출력해야할 라인을 식별함
  */
 
-public class OutPutManager {
+public class DrawDice {
     private final String [] diceParts = {"|           |", "|   *       |", "|     *     |", "|       *   |", "|   *   *   |"};
     private final String dicetop = """
                              ___________     ___________     ___________     ___________     ___________ 
@@ -28,23 +28,40 @@ public class OutPutManager {
     private final String dicebottom = """
                             |___________|   |___________|   |___________|   |___________|   |___________|
                             """;
-/*
-    public void printScoreBoard(ScoreBoard scoreBoard){
 
-    }
-*/
-    public void printDIce(int dice[]){
-//        int [] a = {6,1,3,2,5,4};
-        StringBuilder dicebuilder = new StringBuilder();
+    /**
+     * keep이 설정되지 않은 주사위만 굴러가는 애니메이션 구현 필요
+     * @param dice
+     * @param keep
+     * @return 완성된 주사위 5개 이미지를 반환
+     */
+    public String draw(int[] dice, boolean[] keep){
+        StringBuilder diceBuilder = new StringBuilder();
         for(int i = 0; i < 3; i++){
             for(int j = 0 ; j < 5; j++)
-                dicebuilder.append(drawOneDice(i+1, dice[j]));
-            dicebuilder.append("\n");
+                diceBuilder.append(drawDiceParts(i+1, dice[j]));
+            diceBuilder.append("\n");
         }
-        System.out.println(dicetop + dicebuilder.toString() + dicebottom);
+        return dicetop + diceBuilder.toString() + dicebottom;
     }
 
-    private String drawOneDice(int line, int dice ){
+
+    /**
+     * 모든 주사위에 굴림 애니메이션 출력 메소드
+     * @param dice
+     * @return 완성된 주사위 5개 이미지 반환
+     */
+    public String draw(int[] dice){
+        StringBuilder diceBuilder = new StringBuilder();
+        for(int i = 0; i < 3; i++){
+            for(int j = 0 ; j < 5; j++)
+                diceBuilder.append(drawDiceParts(i+1, dice[j]));
+            diceBuilder.append("\n");
+        }
+        return dicetop + diceBuilder.toString() + dicebottom;
+    }
+
+    private String drawDiceParts(int line, int dice ){
 
         StringBuilder result = new StringBuilder();
         switch (line){
