@@ -27,14 +27,13 @@ public class GameManager {
             printScoreboard(); // 점수판 출력
             printAllDice(); // 굴린 주사위를 출력
 
-            if (currentRollChance > 0) { // 만약 주사위를 굴릴 수 있는 기회가 있다면
+            if (this.currentRollChance > 0) { // 만약 주사위를 굴릴 수 있는 기회가 있다면
                 if (isChoiceRollDice()) { // 선택한 주사위가 있다면 -> isChoiceRollDice 메소드 호출
                     currentRollChance--; // 남은 라운드는 감소
 
-
                     System.out.print("give me index: ");
-                    String inputStr = sc.nextLine(); // 2 3 5 // String 타입에 변수 inputStr 를 인덱스로 받는다.
-                    rerollDiceAtIndex(inputStr); // inputStr 를 매개변수로 받은 rerollDiceAtIndex 메소드를 호출한다.
+                    String[] inputStr = inputManager.checkIndex(sc.nextLine()); // inputManager에서 while문에서 인덱스가 맞는지 검사한다
+                    rerollDiceAtIndex(inputStr); // inputStr를 매개변수로 받은 rerllDiceAtIndex메소드를 호출한다.
                     printAllDice(); // 굴린 주사위 호출
                 }
                 else {
@@ -55,8 +54,8 @@ public class GameManager {
     }
 
     // 인덱스로 선택한 주사위만 다시 굴린다
-    private void rerollDiceAtIndex(String indexStr) {
-        String[] indexStrSplit = indexStr.split(" ");
+    private void rerollDiceAtIndex(String[] indexStr) {
+        String[] indexStrSplit=indexStr;
         for (String index : indexStrSplit) {
             this.DICE.set(Integer.valueOf(index) - 1, (int) (Math.random() * 6) + 1);
         }
@@ -105,7 +104,7 @@ public class GameManager {
         System.out.println("Reroll Dice Select 'r'");
         System.out.println("Write Scoreboard Select 'w'");
         System.out.print("enter your choice: ");
-        String playerChoice = sc.nextLine();
+        String playerChoice = inputManager.status(sc.nextLine());// r,w인지 확인한다 아니면 계속 while으로 입력을 받음
         if (playerChoice.charAt(0) == 'r') {
             return true;
         }

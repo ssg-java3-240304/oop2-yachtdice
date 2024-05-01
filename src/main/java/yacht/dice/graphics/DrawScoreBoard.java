@@ -1,7 +1,6 @@
 package yacht.dice.graphics;
 
 public class DrawScoreBoard {
-    public static void main(String[] args) {
         // 점수 넣었을때 최종적으로 보여지는 점수판 (우선은 첫번째 scoreBoard 사용예정)
         // scoreBoard 사용했을때 마지막 행의 'SCORE |' 뒤부터 배열 삽입(배열 안에 '|' 기호 포함), 마지막 라인은 String lastLine으로 따로 출력
         String scoreBoard = """
@@ -26,5 +25,12 @@ public class DrawScoreBoard {
         String lastLine2 = """
                 ============================================================================================================================================================
                 """;
+
+    public String getScoreBoard2() {
+        return scoreBoard2;
+    }
+
+    public String getScoreBoard() {
+        return scoreBoard;
     }
 }
