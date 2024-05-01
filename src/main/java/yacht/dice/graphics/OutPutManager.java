@@ -87,7 +87,7 @@ public class OutPutManager {
         this.keep = keep;
         rollAnime(dice, keep);
         clearConsole();
-        System.out.println(drawScoreBoard.getScoreBoard());
+        System.out.println(drawScoreBoard.printScoreBoard());
         System.out.println(drawDice.draw(dice));;
     }
 
@@ -96,7 +96,7 @@ public class OutPutManager {
     //점수판 갱신시 사용
     public void printScreen(String[] scoreBorad){
         clearConsole();
-        System.out.println(drawScoreBoard.getScoreBoard());
+        System.out.println(drawScoreBoard.printScoreBoard());
         System.out.println(drawDice.draw(dice));;
     }
 
@@ -120,7 +120,7 @@ public class OutPutManager {
                 throw new RuntimeException(e);
             }
             clearConsole();
-            System.out.println(drawScoreBoard.getScoreBoard());
+            System.out.println(drawScoreBoard.printScoreBoard());
             System.out.print(drawDice.drawAnime(dice, keep));
 
         }
