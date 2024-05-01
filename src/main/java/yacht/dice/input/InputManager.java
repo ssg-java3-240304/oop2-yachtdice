@@ -1,4 +1,4 @@
-package yacht.dice;
+package yacht.dice.input;
 
 import java.util.Iterator;
 import java.util.Scanner;

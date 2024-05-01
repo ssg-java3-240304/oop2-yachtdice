@@ -1,4 +1,4 @@
-package yacht.dice.scoreboard;
+package yacht.dice.objects.scoreboard;
 
 public class Scoreboard {
     public final int SECTION_LENGTH = ScoreboardSectionType.values().length;
@@ -21,7 +21,7 @@ public class Scoreboard {
 
     public int getUpperSectionScore() {
         int total = 0;
-        for (int i = ScoreboardSectionType.ONES.getIndex(); i <= ScoreboardSectionType.SIXES.getIndex(); i++) {
+        for (int i = ScoreboardSectionType.ACES.getIndex(); i <= ScoreboardSectionType.SIXES.getIndex(); i++) {
             total += SECTION_SCORE[i];
         }
         return total;
@@ -29,7 +29,7 @@ public class Scoreboard {
 
     public int getLowerSectionScore() {
         int total = 0;
-        for (int i = ScoreboardSectionType.THREE_OF_A_KIND.getIndex(); i <= ScoreboardSectionType.CHANCE.getIndex(); i++) {
+        for (int i = ScoreboardSectionType.CHOICE.getIndex(); i <= ScoreboardSectionType.YACHT.getIndex(); i++) {
             total += SECTION_SCORE[i];
         }
         return getUpperSectionScore()+ total;

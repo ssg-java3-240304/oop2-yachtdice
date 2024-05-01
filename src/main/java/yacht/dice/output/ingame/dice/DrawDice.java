@@ -1,6 +1,4 @@
-package yacht.dice.graphics;
-
-import java.util.Arrays;
+package yacht.dice.output.ingame.dice;
 
 /**
  *  주사위는 총 6줄로 그린다

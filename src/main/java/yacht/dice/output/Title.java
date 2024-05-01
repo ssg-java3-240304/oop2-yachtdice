@@ -1,4 +1,4 @@
-package yacht.dice.graphics;
+package yacht.dice.output;
 
 public class Title {
         String title = """

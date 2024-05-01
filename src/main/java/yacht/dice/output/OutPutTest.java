@@ -1,4 +1,4 @@
-package yacht.dice.graphics;
+package yacht.dice.output;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
 
