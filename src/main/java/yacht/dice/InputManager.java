@@ -1,5 +1,7 @@
 package yacht.dice;
 
+import yacht.dice.scoreboard.Scoreboard;
+
 import java.util.Scanner;
 
 public class InputManager {
