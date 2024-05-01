@@ -1,36 +1,21 @@
 package yacht.dice.graphics;
 
+import yacht.dice.DiceList;
+import yacht.dice.scoreboard.Scoreboard;
+import yacht.dice.scoreboard.ScoreboardManager;
+
 public class DrawScoreBoard {
-        // 점수 넣었을때 최종적으로 보여지는 점수판 (우선은 첫번째 scoreBoard 사용예정)
-        // scoreBoard 사용했을때 마지막 행의 'SCORE |' 뒤부터 배열 삽입(배열 안에 '|' 기호 포함), 마지막 라인은 String lastLine으로 따로 출력
         String scoreBoard = """
                 +----------+------+--------+--------+-------+-------+-------+------------+--------+-------------+------------+------------+------------+-------+---------+
                 | CHOICE   |  a   |    b   |   c    |   d   |   e   |   f   |            |   g    |      h      |     i      |     j      |      k     |   l   |         | 
                 +----------+------+--------+--------+-------+-------+-------+------------+--------+-------------+------------+------------+------------+-------+---------+
                 | CATEGORY | Aces | Deuces | Threes | Fours | Fives | Sixes |▶ SUBTOTAL ◀| Choice | 4 of a Kind | Full House | S.Straight | L.Straight | Yacht |▶ TOTAL ◀|
                 +----------+------+--------+--------+-------+-------+-------+------------+--------+-------------+------------+------------+------------+-------+---------+
-                | SCORE    |      |        |        |       |       |       |            |        |             |            |            |            |       |         |
+                | SCORE    | """;
+        String lastLine = """
                 +----------+------+--------+--------+-------+-------+-------+------------+--------+-------------+------------+------------+------------+-------+---------+
                 """;
 
-        // 위의 scoreBoard가 | 기호때문에 세로선 맞추기 힘드면 scoreBoard2 사용
-        String scoreBoard2 = """
-                ============================================================================================================================================================
-                 CHOICE   |  a       b         c       d       e       f                    g           h            i            j            k          l    
-                ============================================================================================================================================================
-                 CATEGORY | Aces   Deuces   Threes   Fours   Fives   Sixes  ▶ SUBTOTAL ◀  Choice   4 of a Kind   Full House   S.Straight   L.Straight   Yacht  ▶ TOTAL ◀
-                ============================================================================================================================================================
-                 SCORE    | """;
-
-        String lastLine2 = """
-                ============================================================================================================================================================
-                """;
-
-    public String getScoreBoard2() {
-        return scoreBoard2;
-    }
-
-    public String getScoreBoard() {
-        return scoreBoard;
-    }
+    public String printScoreBoard() {return scoreBoard;}
+    public String printLastLine() {return lastLine;}
 }
