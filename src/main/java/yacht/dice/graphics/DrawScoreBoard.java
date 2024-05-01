@@ -26,11 +26,4 @@ public class DrawScoreBoard {
                 ============================================================================================================================================================
                 """;
 
-    public String getScoreBoard2() {
-        return scoreBoard2;
-    }
-
-    public String getScoreBoard() {
-        return scoreBoard;
-    }
 }
