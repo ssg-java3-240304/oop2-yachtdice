@@ -38,12 +38,13 @@ public class DrawDice {
      */
     public String drawAnime(int[] dice, boolean[] keep){
         StringBuilder diceBuilder = new StringBuilder();
+        int[] tempDice = dice.clone();
             for (int i = 0; i < keep.length; i++) {
                 if (keep[i]) {
-                    dice[i] = (int) (Math.random() * 6 + 1);
+                    tempDice[i] = (int) (Math.random() * 6 + 1);
                 }
             }
-            return draw(dice);
+            return draw(tempDice);
     }
 
 

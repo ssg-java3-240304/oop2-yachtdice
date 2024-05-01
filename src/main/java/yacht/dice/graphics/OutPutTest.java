@@ -28,12 +28,18 @@ public class OutPutTest {
         keep[1] = true;
         keep[2] = true;
         keep[3] = true;
-        outPutManager.printScreen(dice, keep);
+        titleTest(outPutManager);
 
-        sleep(800);
-        clearConsole();
-        Title title = new Title();
-        System.out.print(title.getTitle());
+        sleep(500);
+        rolldiceTest(dice, keep, outPutManager);
+    }
+
+    public static void titleTest(OutPutManager outPutManager){
+        outPutManager.printTitle();
+    }
+
+    public static void rolldiceTest(int[] dice, boolean[] keep, OutPutManager outPutManager){
+        outPutManager.printScreen(dice, keep);
     }
 
     //콘솔클리어 하는 메소드
