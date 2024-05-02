@@ -39,9 +39,6 @@ public class ScoreboardManager {
             case FOURS -> getResultOfFours(dice);
             case FIVES -> getResultOfFives(dice);
             case SIXES -> getResultOfSixes(dice);
-            // Sub-counting
-            case SUM -> getSum();
-            case BONUS -> getBonus();
 
             // Lower section
             case CHOICE -> getResultOfChoice(dice);
@@ -50,29 +47,18 @@ public class ScoreboardManager {
             case SMALL_STRAIGHT -> getResultOfSmallStraight(dice);
             case LARGE_STRAIGHT -> getResultOfLargeStraight(dice);
             case YACHT -> getResultOfYacht(dice);
-            // Total-counting
-            case TOTAL -> getTotal();
+
+            default -> throw new IllegalStateException("Unexpected value: " + sectionType);
         };
     }
 
     // Lower section
     private int getResultOfAces(DiceList dice) {return dice.count(1);}
     private int getResultOfDeuces(DiceList dice) {return dice.count(2) * 2;}
-    private int getResultOfThrees(DiceList dice) {return dice.count(3 * 3);}
+    private int getResultOfThrees(DiceList dice) {return dice.count(3) * 3;}
     private int getResultOfFours(DiceList dice) {return dice.count(4) * 4;}
     private int getResultOfFives(DiceList dice) {return dice.count(5) * 5;}
     private int getResultOfSixes(DiceList dice) {return dice.count(6) * 6;}
-
-    private int getSum() {
-        return SCOREBOARD.getUpperSectionScore();
-    }
-
-    private int getBonus() {
-        if (SCOREBOARD.getUpperSectionScore() >= 63) {
-            return 35;
-        }
-        return 0;
-    }
 
     // Lower section
     private int getResultOfChoice(DiceList dice) {
@@ -80,7 +66,7 @@ public class ScoreboardManager {
     }
 
     private int getResultOfFourKind(DiceList dice) {
-        if (dice.isFourOfKind()) {
+        if (dice.isNumberOfKind(4)) {
             return dice.sum();
         }
         return 0;
@@ -112,9 +98,5 @@ public class ScoreboardManager {
             return 50;
         }
         return 0;
-    }
-
-    private int getTotal() {
-        return SCOREBOARD.getUpperSectionScore() + SCOREBOARD.getLowerSectionScore();
     }
 }

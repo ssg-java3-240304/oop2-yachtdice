@@ -13,6 +13,26 @@ public class Scoreboard {
 
     public void setSectionScore(ScoreboardSectionType sectionType, int score) {
         this.SECTION_SCORE[sectionType.getIndex()] = score;
+        System.out.println(this.SECTION_SCORE[sectionType.getIndex()]);
+
+        int total = 0;
+        for (int i = ScoreboardSectionType.ACES.getIndex(); i <= ScoreboardSectionType.SIXES.getIndex(); i++) {
+            if (this.SECTION_SCORE[i] != null) {
+                total += this.SECTION_SCORE[i];
+            }
+        }
+        this.SECTION_SCORE[ScoreboardSectionType.SUM.getIndex()] = total;
+
+        if (this.SECTION_SCORE[ScoreboardSectionType.SUM.getIndex()] >= 63) {
+            this.SECTION_SCORE[ScoreboardSectionType.BONUS.getIndex()] = 35;
+        }
+
+        for (int i = ScoreboardSectionType.CHOICE.getIndex(); i <= ScoreboardSectionType.YACHT.getIndex(); i++) {
+            if (this.SECTION_SCORE[i] != null) {
+                total += SECTION_SCORE[i];
+            }
+        }
+        this.SECTION_SCORE[ScoreboardSectionType.TOTAL.getIndex()] = total;
     }
 
     public Integer[] getSECTION_SCORE() {
@@ -22,7 +42,9 @@ public class Scoreboard {
     public int getUpperSectionScore() {
         int total = 0;
         for (int i = ScoreboardSectionType.ACES.getIndex(); i <= ScoreboardSectionType.SIXES.getIndex(); i++) {
-            total += SECTION_SCORE[i];
+            if (this.SECTION_SCORE[i] != null) {
+                total += SECTION_SCORE[i];
+            }
         }
         return total;
     }
@@ -30,7 +52,9 @@ public class Scoreboard {
     public int getLowerSectionScore() {
         int total = 0;
         for (int i = ScoreboardSectionType.CHOICE.getIndex(); i <= ScoreboardSectionType.YACHT.getIndex(); i++) {
-            total += SECTION_SCORE[i];
+            if (this.SECTION_SCORE[i] != null) {
+                total += SECTION_SCORE[i];
+            }
         }
         return getUpperSectionScore()+ total;
     }

@@ -12,9 +12,17 @@ public class DiceList {
         this.DICE = new int[DICE_SIZE];
     }
 
+    public DiceList(DiceList diceList) {
+        this.DICE = new int[diceList.DICE_SIZE];
+    }
+
     // MMMMMMMMMMMMMMMMMMMMethod
     public int[] getList() {
         return this.DICE;
+    }
+
+    public DiceList getClone() {
+        return new DiceList(this);
     }
 
     public int length() {
@@ -47,9 +55,9 @@ public class DiceList {
         return sum;
     }
 
-    public boolean isFourOfKind() {
+    public boolean isNumberOfKind(int num) {
         for (int i = 1; i <= 6; i++) {
-            if (count(i) >= 4) {
+            if (count(i) >= num) {
                 return true;
             }
         }
@@ -71,17 +79,16 @@ public class DiceList {
     }
 
     public boolean isStraight(int length) {
-        int[] sortedDice  = Arrays.copyOf(this.DICE, this.DICE_SIZE);
-        Arrays.sort(sortedDice );
+        int[] sortedDice = Arrays.copyOf(this.DICE, this.DICE_SIZE);
+        Arrays.sort(sortedDice);
         int straightCount = 1;
-        for (int i = 0; i < sortedDice .length - 1; i++) {
-            if (this.DICE[i + 1] > this.DICE[i]) {
+        for (int i = 0; i < sortedDice.length - 1; i++) {
+            if (sortedDice[i + 1] > sortedDice[i]) {
                 straightCount++;
                 if (straightCount == length) {
                     return true;
                 }
-            }
-            else {
+            } else {
                 straightCount = 0;
             }
         }

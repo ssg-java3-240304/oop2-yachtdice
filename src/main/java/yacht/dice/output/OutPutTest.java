@@ -31,16 +31,16 @@ public class OutPutTest {
         titleTest(outPutManager);
 
         sleep(500);
-        rolldiceTest(dice, keep, outPutManager);
+//        rolldiceTest(dice, keep, outPutManager);
     }
 
     public static void titleTest(OutPutManager outPutManager){
         outPutManager.printTitle();
     }
 
-    public static void rolldiceTest(int[] dice, boolean[] keep, OutPutManager outPutManager){
-        outPutManager.printScreen(dice, keep);
-    }
+//    public static void rolldiceTest(int[] dice, boolean[] keep, OutPutManager outPutManager){
+//        outPutManager.printScreen(dice, keep);
+//    }
 
     //콘솔클리어 하는 메소드
     public static void clearConsole(){

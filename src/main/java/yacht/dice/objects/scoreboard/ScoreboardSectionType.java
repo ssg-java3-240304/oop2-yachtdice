@@ -18,7 +18,7 @@ public enum ScoreboardSectionType {
     SMALL_STRAIGHT(11, "Small Straight"),
     LARGE_STRAIGHT(12, "Large Straight"),
     YACHT(13, "Yacht"),
-    TOTAL(15, "TOTAL");
+    TOTAL(14, "TOTAL");
 
     private final int index;
     private final String name;
