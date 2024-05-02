@@ -17,7 +17,7 @@ public class GameBoy {
     public GameBoy() {
         this.INPUT_MANAGER = new InputManager();
         this.OUTPUT_MANAGER = new OutPutManager();
-        this.SCOREBOARD_MANAGER = new ScoreboardManager();
+        this.SCOREBOARD_MANAGER = ScoreboardManager.getInstance();
         this.DICE = new DiceList();
     }
 

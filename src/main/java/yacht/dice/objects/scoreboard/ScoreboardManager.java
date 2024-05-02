@@ -3,6 +3,16 @@ package yacht.dice.objects.scoreboard;
 import yacht.dice.objects.DiceList;
 
 public class ScoreboardManager {
+    // singleton
+    private static ScoreboardManager instance;
+    public static ScoreboardManager getInstance() {
+        // 이미 인스턴스가 생성되었는지 확인하고, 없으면 새로 생성하여 반환
+        if(instance == null) {
+            instance = new ScoreboardManager();
+        }
+        return instance;
+    }
+
     // FFFFFFFFFFFFFFFFFFFField
     private final Scoreboard SCOREBOARD;
 
@@ -13,7 +23,7 @@ public class ScoreboardManager {
 
     // MMMMMMMMMMMMMMMMMMMMethod
     public String[] getScoreboard(DiceList dice) {
-        Integer[] sectionScore = SCOREBOARD.getSECTION_SCORE();
+        Integer[] sectionScore = SCOREBOARD.getSectionScore();
         String[] scoreboardStr = new String[SCOREBOARD.SECTION_LENGTH];
         for (int i = 0; i < SCOREBOARD.SECTION_LENGTH; i++) {
             if (sectionScore[i] != null) {
@@ -26,7 +36,11 @@ public class ScoreboardManager {
         return scoreboardStr;
     }
 
-    public void  setSection(ScoreboardSectionType sectionType, DiceList dice) {
+    public boolean canSetSection(ScoreboardSectionType sectionType) {
+        return SCOREBOARD.getSectionScore()[sectionType.getIndex()] == null;
+    }
+
+    public void setSection(ScoreboardSectionType sectionType, DiceList dice) {
         SCOREBOARD.setSectionScore(sectionType, getSectionResult(sectionType, dice));
     }
 

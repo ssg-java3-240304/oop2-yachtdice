@@ -13,7 +13,6 @@ public class Scoreboard {
 
     public void setSectionScore(ScoreboardSectionType sectionType, int score) {
         this.SECTION_SCORE[sectionType.getIndex()] = score;
-        System.out.println(this.SECTION_SCORE[sectionType.getIndex()]);
 
         int total = 0;
         for (int i = ScoreboardSectionType.ACES.getIndex(); i <= ScoreboardSectionType.SIXES.getIndex(); i++) {
@@ -35,7 +34,7 @@ public class Scoreboard {
         this.SECTION_SCORE[ScoreboardSectionType.TOTAL.getIndex()] = total;
     }
 
-    public Integer[] getSECTION_SCORE() {
+    public Integer[] getSectionScore() {
         return SECTION_SCORE.clone();
     }
 
