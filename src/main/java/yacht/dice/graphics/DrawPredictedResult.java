@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DrawPredictedResult {
     final String SCOREBOARD_TOP_PARTS = """
-                +----------+------+--------+--------+-------+-------+-------+--------+-------------+------------+------------+------------+-------+
+                +----------+------+--------+--------+-------+-------+------<< Score Preview >>-----+------------+------------+------------+-------+
                 | CATEGORY | Aces | Deuces | Threes | Fours | Fives | Sixes | Choice | 4 of a Kind | Full House | S.Straight | L.Straight | Yacht |
                 +----------+------+--------+--------+-------+-------+-------+--------+-------------+------------+------------+------------+-------+""";
     final String SCOREBOARD_MID_PARTS1 = "| SCORE    |";
