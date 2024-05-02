@@ -36,6 +36,7 @@ public class OutPutManager {
         this.dice = new int[DICE_SIZE];
         this.keep = new boolean[DICE_SIZE];
         this.scoreBoard = new String[SECTION_LENGTH];
+        Arrays.fill(scoreBoard, "+0");
         this.drawScoreBoard = new DrawScoreBoard();
         this.drawPredictedResult = new DrawPredictedResult();
         Arrays.fill(this.dice, 6);
@@ -88,22 +89,22 @@ public class OutPutManager {
     public void printScreen(int[] dice, boolean[] keep){
         this.dice = dice;
         this.keep = keep;
-        this.scoreBoard = new String[]{"+3","+1","30","+0","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3",};
         rollAnime(dice, keep);
         clearConsole();
         System.out.println(drawScoreBoard.printScoreBoard());
         System.out.println(addOffset(drawDice.draw(dice), PRINT_OFFSET));
-        System.out.println(addOffset(drawPredictedResult.draw("0", scoreBoard), 10));
+        System.out.println(addOffset(drawPredictedResult.draw(scoreBoard), 10));
     }
 
     //점수판만 입력 받아 화면을 갱신하는 메소드
     //주사위는 기존 입력을 유지함
     //점수판 갱신시 사용
-    public void printScreen(String[] scoreBorad){
+    public void printScreen(String[] scoreBoard){
+        this.scoreBoard = scoreBoard;
         clearConsole();
         System.out.println(drawScoreBoard.printScoreBoard());
         System.out.println(drawDice.draw(dice));
-        System.out.println(addOffset(drawPredictedResult.draw("0", scoreBoard), 10));
+        System.out.println(addOffset(drawPredictedResult.draw(scoreBoard), 10));
     }
 
 
@@ -147,7 +148,7 @@ public class OutPutManager {
         }
     }
 
-    public String addOffset(String diceStr, int offset){
+    private String addOffset(String diceStr, int offset){
         StringBuilder result = new StringBuilder();
         String[] diceSubStr = diceStr.split("\n");
         for(String subStr : diceSubStr){
