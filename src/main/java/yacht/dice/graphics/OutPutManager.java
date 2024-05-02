@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class OutPutManager {
     private final int SECTION_LENGTH = 16;
     private final int DICE_SIZE = 5;
-    private final int PRINT_OFFSET = 35;
+    private final int PRINT_OFFSET = 40;
     private int[] dice;
     private String[] scoreBoard;
     private DrawDice drawDice;
