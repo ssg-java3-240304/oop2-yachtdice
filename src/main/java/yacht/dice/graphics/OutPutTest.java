@@ -29,9 +29,12 @@ public class OutPutTest {
         keep[2] = true;
         keep[3] = true;
         titleTest(outPutManager);
+        DrawDice drawDice = new DrawDice();
 
         sleep(500);
         rolldiceTest(dice, keep, outPutManager);
+//        sleep(500);
+//        System.out.println(outPutManager.addOffset(drawDice.draw(dice)));
     }
 
     public static void titleTest(OutPutManager outPutManager){
