@@ -14,17 +14,29 @@ public class InputManager {
         char inputStr;
         PlayerAction playerAction;
         while (true) {
-            inputStr = sc.nextLine().charAt(0);
-            if (inputStr == 'r') {
-                playerAction = PlayerAction.REROLL_DICE;
-                break;
-            } else if (inputStr == 's') {
-                playerAction = PlayerAction.SELECT_SCOREBOARD;
-                break;
-            } else {
+            try {
+                inputStr = sc.nextLine().charAt(0);
+
+                if (inputStr == 'r'){
+                    playerAction = PlayerAction.REROLL_DICE;
+                    break;
+                }
+                else if (inputStr == 's'){
+                    playerAction = PlayerAction.SELECT_SCOREBOARD;
+                    break;
+                }
+                else {
+                    System.out.println("잘못된 입력입니다 다시 입력해주세요");
+                    System.out.print("주사위 다시 굴리기(r) / 점수판에 입력(s): ");
+                }
+            }
+            catch (Exception e)
+            {
+                // 바로 엔터를 치면 뜨는 에러를 try~catch로 잡는다
                 System.out.println("잘못된 입력입니다 다시 입력해주세요");
                 System.out.print("주사위 다시 굴리기(r) / 점수판에 입력(s): ");
             }
+
         }
         return playerAction;
     }

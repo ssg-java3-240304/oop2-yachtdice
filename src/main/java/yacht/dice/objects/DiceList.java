@@ -83,7 +83,7 @@ public class DiceList {
         Arrays.sort(sortedDice);
         int straightCount = 1;
         for (int i = 0; i < sortedDice.length - 1; i++) {
-            if (sortedDice[i + 1] > sortedDice[i]) {
+            if (sortedDice[i + 1] == sortedDice[i] + 1) {
                 straightCount++;
                 if (straightCount == length) {
                     return true;

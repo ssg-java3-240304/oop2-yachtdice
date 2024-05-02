@@ -24,6 +24,7 @@ public class Scoreboard {
 
         if (this.SECTION_SCORE[ScoreboardSectionType.SUM.getIndex()] >= 63) {
             this.SECTION_SCORE[ScoreboardSectionType.BONUS.getIndex()] = 35;
+            total += 35;
         }
 
         for (int i = ScoreboardSectionType.CHOICE.getIndex(); i <= ScoreboardSectionType.YACHT.getIndex(); i++) {

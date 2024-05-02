@@ -25,7 +25,7 @@ public class OutPutManager {
         printDice(dice);
     }
 
-    private void printScoreboard(String[] scoreboardStr) {
+    public void printScoreboard(String[] scoreboardStr) {
 //        clearConsole();
         System.out.println(this.SCOREBOARD_IMAGE.getImage(scoreboardStr));
     }

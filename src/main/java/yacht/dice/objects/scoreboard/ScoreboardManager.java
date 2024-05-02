@@ -36,6 +36,15 @@ public class ScoreboardManager {
         return scoreboardStr;
     }
 
+    public String[] getScoreboard() {
+        Integer[] sectionScore = SCOREBOARD.getSectionScore();
+        String[] scoreboardStr = new String[SCOREBOARD.SECTION_LENGTH];
+        for (int i = 0; i < SCOREBOARD.SECTION_LENGTH; i++) {
+            scoreboardStr[i] = sectionScore[i].toString();
+        }
+        return scoreboardStr;
+    }
+
     public boolean canSetSection(ScoreboardSectionType sectionType) {
         return SCOREBOARD.getSectionScore()[sectionType.getIndex()] == null;
     }

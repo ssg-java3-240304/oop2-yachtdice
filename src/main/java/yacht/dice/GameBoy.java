@@ -55,6 +55,7 @@ public class GameBoy {
                 }
             }
         }
+        OUTPUT_MANAGER.printScoreboard(SCOREBOARD_MANAGER.getScoreboard());
     }
 
     // dice 에 1~6까지 랜덤한 숫자가 들어가 있게 한다.

@@ -18,7 +18,7 @@ public class ScoreboardImage {
         image += String.format("     %-7s|", scoreboardStr[ScoreboardSectionType.FOURS.getIndex()]);
         image += String.format("     %-7s|", scoreboardStr[ScoreboardSectionType.FIVES.getIndex()]);
         image += String.format("   %-6s|", scoreboardStr[ScoreboardSectionType.SIXES.getIndex()]);
-        image += String.format("     %-7s|", scoreboardStr[ScoreboardSectionType.SUM.getIndex()]);
+        image += String.format("   %-3s/ 63  |", scoreboardStr[ScoreboardSectionType.SUM.getIndex()]);
         image += String.format("   %-4s|", scoreboardStr[ScoreboardSectionType.BONUS.getIndex()]);
         image += '\n';
         // Lower section
