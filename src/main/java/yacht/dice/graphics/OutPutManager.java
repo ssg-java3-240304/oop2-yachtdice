@@ -11,6 +11,7 @@ public class OutPutManager {
     private DrawDice drawDice;
     private boolean[] keep;
     DrawScoreBoard drawScoreBoard;
+    DrawPredictedResult drawPredictedResult;
 
     public boolean[] getKeep() {
         return keep;
@@ -35,6 +36,7 @@ public class OutPutManager {
         this.keep = new boolean[DICE_SIZE];
         this.scoreBoard = new String[SECTION_LENGTH];
         this.drawScoreBoard = new DrawScoreBoard();
+        this.drawPredictedResult = new DrawPredictedResult();
         Arrays.fill(this.dice, 6);
         Arrays.fill(this.keep, false);
     }
@@ -85,10 +87,12 @@ public class OutPutManager {
     public void printScreen(int[] dice, boolean[] keep){
         this.dice = dice;
         this.keep = keep;
+        this.scoreBoard = new String[]{"+3","+1","30","+0","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3","+3",};
         rollAnime(dice, keep);
         clearConsole();
         System.out.println(drawScoreBoard.printScoreBoard());
         System.out.println(drawDice.draw(dice));;
+        System.out.println(drawPredictedResult.draw("0", scoreBoard));
     }
 
     //점수판만 입력 받아 화면을 갱신하는 메소드
