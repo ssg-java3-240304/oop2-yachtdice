@@ -1,9 +1,9 @@
-package yacht.dice.objects.scoreboard;
+package yacht.dice.scoreboard;
 
 public enum ScoreboardSectionType {
     // Upper section
-    ACES(0, "Ones"),
-    DEUCES(1, "Twos"),
+    ONES(0, "Ones"),
+    TWOS(1, "Twos"),
     THREES(2, "Threes"),
     FOURS(3, "Fours"),
     FIVES(4, "Fives"),
@@ -12,12 +12,13 @@ public enum ScoreboardSectionType {
     BONUS(7, "Bonus"),
 
     // Lower section
-    CHOICE(8, "Choice"),
+    THREE_OF_A_KIND(8, "Three of a Kind"),
     FOUR_OF_A_KIND(9, "Four of a Kind"),
     FULL_HOUSE(10, "Full House"),
     SMALL_STRAIGHT(11, "Small Straight"),
     LARGE_STRAIGHT(12, "Large Straight"),
-    YACHT(13, "Yacht"),
+    YAHTZEE(13, "Yahtzee"),
+    CHANCE(14, "Chance"),
     TOTAL(15, "TOTAL");
 
     private final int index;

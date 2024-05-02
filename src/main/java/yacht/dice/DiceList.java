@@ -1,4 +1,4 @@
-package yacht.dice.objects;
+package yacht.dice;
 
 import java.util.Arrays;
 
@@ -47,9 +47,9 @@ public class DiceList {
         return sum;
     }
 
-    public boolean isFourOfKind() {
+    public boolean isNumberOfKind(int num) {
         for (int i = 1; i <= 6; i++) {
-            if (count(i) >= 4) {
+            if (count(i) >= num) {
                 return true;
             }
         }

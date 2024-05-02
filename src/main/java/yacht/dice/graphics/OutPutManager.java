@@ -1,8 +1,4 @@
-package yacht.dice.output;
-
-import yacht.dice.objects.DiceList;
-import yacht.dice.output.ingame.dice.DrawDice;
-import yacht.dice.output.ingame.socoreboard.ScoreboardImage;
+package yacht.dice.graphics;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,7 +10,7 @@ public class OutPutManager {
     private String[] scoreBoard;
     private DrawDice drawDice;
     private boolean[] keep;
-    private ScoreboardImage drawScoreBoard;
+    DrawScoreBoard drawScoreBoard;
 
     public boolean[] getKeep() {
         return keep;
@@ -38,7 +34,7 @@ public class OutPutManager {
         this.dice = new int[DICE_SIZE];
         this.keep = new boolean[DICE_SIZE];
         this.scoreBoard = new String[SECTION_LENGTH];
-        this.drawScoreBoard = new ScoreboardImage();
+        this.drawScoreBoard = new DrawScoreBoard();
         Arrays.fill(this.dice, 6);
         Arrays.fill(this.keep, false);
     }
@@ -80,7 +76,7 @@ public class OutPutManager {
         printDice(this.dice, keep);
     }
 
-     /**
+    /**
      * 주사위 입력을 받아 출력함
      * 주사위를 굴릴때 사용
      * @param dice
@@ -91,7 +87,7 @@ public class OutPutManager {
         this.keep = keep;
         rollAnime(dice, keep);
         clearConsole();
-//        System.out.println(drawScoreBoard.printScoreBoard());
+        System.out.println(drawScoreBoard.getScoreBoard());
         System.out.println(drawDice.draw(dice));;
     }
 
@@ -100,18 +96,10 @@ public class OutPutManager {
     //점수판 갱신시 사용
     public void printScreen(String[] scoreBorad){
         clearConsole();
-//        System.out.println(drawScoreBoard.printScoreBoard());
+        System.out.println(drawScoreBoard.getScoreBoard());
         System.out.println(drawDice.draw(dice));;
     }
 
-    public void printScoreboard(String[] scoreboardStr) {
-        clearConsole();
-        System.out.println(drawScoreBoard.getImage(scoreboardStr));
-    }
-
-    public void printDice(DiceList dice) {
-
-    }
 
 
 /*
@@ -132,7 +120,7 @@ public class OutPutManager {
                 throw new RuntimeException(e);
             }
             clearConsole();
-            System.out.println(drawScoreBoard.printScoreBoard());
+            System.out.println(drawScoreBoard.getScoreBoard());
             System.out.print(drawDice.drawAnime(dice, keep));
 
         }

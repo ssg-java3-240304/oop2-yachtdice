@@ -1,6 +1,6 @@
-package yacht.dice.objects.scoreboard;
+package yacht.dice.scoreboard;
 
-import yacht.dice.objects.DiceList;
+import yacht.dice.DiceList;
 
 public class ScoreboardManager {
     // FFFFFFFFFFFFFFFFFFFField
@@ -33,8 +33,8 @@ public class ScoreboardManager {
     private int getSectionResult(ScoreboardSectionType sectionType, DiceList dice) {
         return switch (sectionType) {
             // Upper section
-            case ACES -> getResultOfAces(dice);
-            case DEUCES -> getResultOfDeuces(dice);
+            case ONES -> getResultOfOnes(dice);
+            case TWOS -> getResultOfTwos(dice);
             case THREES -> getResultOfThrees(dice);
             case FOURS -> getResultOfFours(dice);
             case FIVES -> getResultOfFives(dice);
@@ -44,20 +44,21 @@ public class ScoreboardManager {
             case BONUS -> getBonus();
 
             // Lower section
-            case CHOICE -> getResultOfChoice(dice);
+            case THREE_OF_A_KIND -> getResultOfThreeKind(dice);
             case FOUR_OF_A_KIND -> getResultOfFourKind(dice);
             case FULL_HOUSE -> getResultOfFullHouse(dice);
             case SMALL_STRAIGHT -> getResultOfSmallStraight(dice);
             case LARGE_STRAIGHT -> getResultOfLargeStraight(dice);
-            case YACHT -> getResultOfYacht(dice);
+            case YAHTZEE -> getResultOfYahtzee(dice);
+            case CHANCE -> getResultOfChance(dice);
             // Total-counting
             case TOTAL -> getTotal();
         };
     }
 
     // Lower section
-    private int getResultOfAces(DiceList dice) {return dice.count(1);}
-    private int getResultOfDeuces(DiceList dice) {return dice.count(2) * 2;}
+    private int getResultOfOnes(DiceList dice) {return dice.count(1);}
+    private int getResultOfTwos(DiceList dice) {return dice.count(2) * 2;}
     private int getResultOfThrees(DiceList dice) {return dice.count(3 * 3);}
     private int getResultOfFours(DiceList dice) {return dice.count(4) * 4;}
     private int getResultOfFives(DiceList dice) {return dice.count(5) * 5;}
@@ -75,12 +76,15 @@ public class ScoreboardManager {
     }
 
     // Lower section
-    private int getResultOfChoice(DiceList dice) {
-        return dice.sum();
+    private int getResultOfThreeKind(DiceList dice) {
+        if (dice.isNumberOfKind(3)) {
+            return dice.sum();
+        }
+        return 0;
     }
 
     private int getResultOfFourKind(DiceList dice) {
-        if (dice.isFourOfKind()) {
+        if (dice.isNumberOfKind(4)) {
             return dice.sum();
         }
         return 0;
@@ -107,11 +111,15 @@ public class ScoreboardManager {
         return 0;
     }
 
-    private int getResultOfYacht(DiceList dice) {
+    private int getResultOfYahtzee(DiceList dice) {
         if (dice.isNumberOfKind(5)) {
             return 50;
         }
         return 0;
+    }
+
+    private int getResultOfChance(DiceList dice) {
+        return dice.sum();
     }
 
     private int getTotal() {
