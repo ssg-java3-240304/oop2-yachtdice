@@ -40,9 +40,12 @@
 ## 🎮게임 이용 설명서
 
 #### 🕹️게임 시작
+![Title](https://github.com/ssg-java3-240304/oop2-yachtdice/assets/162235645/bee9b349-0a52-4da1-838a-ee6fd5bd92fd)
+- 게임 시작 화면이예요.
+- 아무키나 눌러 게임을 시작해보아요
 
 ![스크린샷 2024-05-02 212322 (소형)](https://github.com/ssg-java3-240304/oop2-yachtdice/assets/162235645/5ec8290c-ce19-4035-af12-92405f9dcbfc)
-- 1라운드 시작시 화면 입니다. 
+- 1라운드 시작시 화면이예요. 
 - 주사위의 눈이 5, 5, 5, 5, 1 이므로 1을 5로 바꾼다면 야추를 노려 볼수 있어요
 &nbsp;
 
