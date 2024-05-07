@@ -1,4 +1,4 @@
-package yacht.dice.graphics;
+package yacht.dice.output;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
 
@@ -29,21 +29,18 @@ public class OutPutTest {
         keep[2] = true;
         keep[3] = true;
         titleTest(outPutManager);
-        DrawDice drawDice = new DrawDice();
 
         sleep(500);
-        rolldiceTest(dice, keep, outPutManager);
-//        sleep(500);
-//        System.out.println(outPutManager.addOffset(drawDice.draw(dice)));
+//        rolldiceTest(dice, keep, outPutManager);
     }
 
     public static void titleTest(OutPutManager outPutManager){
         outPutManager.printTitle();
     }
 
-    public static void rolldiceTest(int[] dice, boolean[] keep, OutPutManager outPutManager){
-        outPutManager.printScreen(dice, keep);
-    }
+//    public static void rolldiceTest(int[] dice, boolean[] keep, OutPutManager outPutManager){
+//        outPutManager.printScreen(dice, keep);
+//    }
 
     //콘솔클리어 하는 메소드
     public static void clearConsole(){
