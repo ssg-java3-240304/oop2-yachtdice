@@ -24,14 +24,15 @@ public class GameBoy {
     // start: 게임 로비
     public void start() {
         // 로비화면 출력
+        OUTPUT_MANAGER.printTitle();
+        INPUT_MANAGER.getGameState();
         gameStart();
     }
 
     public void gameStart() {
         for (int i = 0; i < this.ROUND; i++) {
-            OUTPUT_MANAGER.pintCurrentRound(i + 1);
             rollAllDice();
-            OUTPUT_MANAGER.printScreen(SCOREBOARD_MANAGER.getScoreboard(DICE), DICE);
+            OUTPUT_MANAGER.printScreenAll(SCOREBOARD_MANAGER.getScoreboard(DICE), DICE, i+1);
 
             int currentRerollChance = this.REROLL_CHANCE;
             playerAction:
@@ -40,9 +41,9 @@ public class GameBoy {
                     switch (INPUT_MANAGER.getPlayerAction()) { // 플레이어 선택 받기
                         case REROLL_DICE: // 리롤 선택시
                             currentRerollChance--;
-                            rerollDiceAtIndex(INPUT_MANAGER.getRerollDiceIndexArray());
-                            OUTPUT_MANAGER.pintCurrentRound(i + 1);
-                            OUTPUT_MANAGER.printScreen(SCOREBOARD_MANAGER.getScoreboard(DICE), DICE);
+                            String [] rerolledDice = INPUT_MANAGER.getRerollDiceIndexArray();
+                            rerollDiceAtIndex(rerolledDice);
+                            OUTPUT_MANAGER.printScreen(SCOREBOARD_MANAGER.getScoreboard(DICE), DICE, rerolledDice, i+1);
                             break;
 
                         case SELECT_SCOREBOARD: // 점수판 입력 선택시

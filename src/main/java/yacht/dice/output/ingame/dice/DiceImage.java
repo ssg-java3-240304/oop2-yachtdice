@@ -2,6 +2,8 @@ package yacht.dice.output.ingame.dice;
 
 import yacht.dice.objects.DiceList;
 
+import java.util.Arrays;
+
 /**
  * 주사위는 총 6줄로 그린다
  * 상단 2줄과 마지막 1줄은 항상 고정
@@ -24,7 +26,7 @@ import yacht.dice.objects.DiceList;
 public class DiceImage {
     private final String[] diceParts = {"|           |", "|   *       |", "|     *     |", "|       *   |", "|   *   *   |"};
     private final String dicetop = """
-             ___________     ___________     ___________     ___________     ___________ 
+             ___________     ___________     ___________     ___________     ___________
             |           |   |           |   |           |   |           |   |           |
             """;
     private final String dicebottom = """
@@ -35,14 +37,22 @@ public class DiceImage {
      * keep이 설정되지 않은 주사위만 굴러가는 애니메이션용
      *
      * @param dice
-     * @param keep
+     * @param rerolledDice
      */
-    public String drawDiceAnime(DiceList dice, boolean[] keep) {
-        StringBuilder diceBuilder = new StringBuilder();
+    public String getRandomDice(DiceList dice, String[] rerolledDice) {
+        boolean[] reroll = new boolean[5];
+        Arrays.fill(reroll, false);
+
+        for(String str : rerolledDice){
+            reroll[Integer.parseInt(str)-1] = true;
+        }
+
         DiceList tempDice = dice.getClone();
-        for (int i = 0; i < keep.length; i++) {
-            if (keep[i]) {
+        for (int i = 0; i < reroll.length; i++) {
+            if (reroll[i]) {
                 tempDice.set(i, (int) (Math.random() * 6 + 1));
+            }else {
+                tempDice.set(i, dice.get(i));
             }
         }
         return getImage(tempDice);
@@ -52,7 +62,7 @@ public class DiceImage {
     /**
      * 모든 주사위에 굴림 애니메이션 출력 메소드
      *
-     * @param dice
+     * @param dice 이미지를 얻을 주사위를 ㅣㅇㅂ력
      * @return 완성된 주사위 5개 이미지 반환
      */
     public String getImage(DiceList dice) {

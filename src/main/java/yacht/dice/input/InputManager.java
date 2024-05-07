@@ -129,4 +129,8 @@ public class InputManager {
             }
         } while (true);
     }
+
+    public void getGameState(){
+        sc.nextLine();
+    }
 }
